@@ -26,6 +26,9 @@ int centerX = SCREEN_WIDTH / 2;
 int centerY = SCREEN_HEIGHT / 2;
 
 TFT_eSPI tft = TFT_eSPI();
+TFT_eSprite playscreen = TFT_eSprite(&tft);
+
+
 
 void setup() {
 //   touchscreenSPI.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
@@ -37,12 +40,16 @@ void setup() {
 
   tft.fillScreen(TFT_WHITE);
   tft.setTextColor(TFT_BLACK, TFT_WHITE);
-  tft.pushImage(0, 0, play);
+  
+  playscreen.createSprite(480, 320);
+  playscreen.setSwapBytes(true)
+  playscreen.pushImage(0, 0, 480, 320, play);
+  playscreen.pushSprite(0,0, TFT_WHITE)
   
 }
 
 void loop() {
-  if (touchscreen.tirqTouched() && touchscreen.touched()) {
-    ts.readData(&x, &y, &z);
-  }
+  tft.getTouchRaw(&x, &y);
+  tft.convertRawXZ(&x, &y)
+    
 }
