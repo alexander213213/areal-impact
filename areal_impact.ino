@@ -7,8 +7,8 @@
 #define FONT_SIZE 3
 
 // Touchscreen coordinates: (x, y) and pressure (z)
-uint16_t x
-uint16_t y
+uint16_t x;
+uint16_t y;
 uint16_t z;
 
 int centerX = SCREEN_WIDTH / 2;
