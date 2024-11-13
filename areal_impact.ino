@@ -1,6 +1,7 @@
 // #include <SPI.h>
 #include <TFT_eSPI.h>
 // #include <XPT2046_Touchscreen.h>
+#include "play.h"
 
 #define SCREEN_WIDTH 480
 #define SCREEN_HEIGHT 320
@@ -32,7 +33,7 @@ void setup() {
   
   playscreen.createSprite(480, 320);
   playscreen.setSwapBytes(true);
-  playscreen.pushImage(0, 0, 480, 320, play);
+  playscreen.pushImage(0, 0, 479, 320, play);
   playscreen.pushSprite(0,0, TFT_WHITE);
   
 }
